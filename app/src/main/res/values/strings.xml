@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AC</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="indexTV">1</string>
+    <string name="indexB1">添加活动</string>
+    <string name="indexB2">活动中心</string>
+    <string name="indexB3">我的活动</string>
+    <string name="indexB4">设置</string>
+</resources>

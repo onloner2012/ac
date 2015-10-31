@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#ff7dd0f7"
+        android:paddingLeft="5dp" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:text="←手机登陆"
+            android:id="@+id/back"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/dl_ZH_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="手机号" />
+
+        <EditText
+            android:id="@+id/dl_MM_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="密码"
+            android:password="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/cb_mima"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dl_MM_EditText"
+            android:layout_marginLeft="12dip"
+            android:text="记住密码"
+            android:textColor="#000000" />
+
+        <CheckBox
+            android:id="@+id/cb_auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cb_mima"
+            android:layout_marginLeft="12dip"
+            android:text="自动登录"
+            android:textColor="#000000" />
+        </LinearLayout>
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:weightSum="1">
+             <Button
+                 android:id="@+id/dl_ZhuCe_TextView"
+                 android:layout_width="140dp"
+                 android:layout_height="63dp"
+                 android:layout_marginTop="20dp"
+                 android:background="#fff"
+                 android:text="注册"
+                 android:textColor="#ff7dd0f7"
+                 android:textSize="25dp"/>
+             <Button
+                 android:id="@+id/dl_DengLu_Button"
+                 android:layout_width="140dp"
+                 android:layout_height="63dp"
+                 android:layout_marginTop="20dp"
+                 android:background="#ff7dd0f7"
+                 android:text="登陆"
+                 android:textColor="#fff"
+                 android:textSize="25dp" />
+         </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
