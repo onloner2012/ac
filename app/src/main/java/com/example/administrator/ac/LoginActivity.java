@@ -26,7 +26,7 @@ public class LoginActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+		Bmob.initialize(this, "ae7b4c7924dad7566c020ddcf141b4df");
         //去除标题
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.login);
@@ -62,7 +62,7 @@ public class LoginActivity extends Activity {
         }
 
         // 登录监听事件  现在默认为用户名为：123 密码：123
-        btn_login.setOnClickListener(new View.OnClickListener() {
+        btn_reg.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
                 userNameValue = userName.getText().toString();
@@ -110,7 +110,7 @@ public class LoginActivity extends Activity {
         });
 		
 		//注册按钮实现
-		btn_reg.setOnClickListener(new view.OnClickListener(){
+		btn_login.setOnClickListener(new view.OnClickListener(){
 				public void onClick(View v){
 				userNameValue = userName.getText().toString();
                 passwordValue = password.getText().toString();
