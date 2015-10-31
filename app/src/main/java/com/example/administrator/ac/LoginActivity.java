@@ -38,6 +38,7 @@ public class LoginActivity extends Activity {
         rem_pw = (CheckBox) findViewById(R.id.cb_mima);
         auto_login = (CheckBox) findViewById(R.id.cb_auto);
         btn_login = (Button) findViewById(R.id.dl_DengLu_Button);
+		btn_reg = (Button) findViewById(R.id.dl_ZhuCe_TextView);
        // btnQuit = (ImageButton)findViewById(R.id.img_btn);//返回退出
 
 
@@ -67,7 +68,7 @@ public class LoginActivity extends Activity {
                 userNameValue = userName.getText().toString();
                 passwordValue = password.getText().toString();
 
-                if(userNameValue.equals("123")&&passwordValue.equals("123"))
+               /* if(userNameValue.equals("123")&&passwordValue.equals("123"))
                 {
                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                     //登录成功和记住密码框为选中状态才保存用户信息
@@ -78,19 +79,63 @@ public class LoginActivity extends Activity {
                         editor.putString("USER_NAME", userNameValue);
                         editor.putString("PASSWORD",passwordValue);
                         editor.commit();
-                    }
+                    }*/
+					
+						BmobUser bu = new BmobUser();
+						bu.setUsername(userNameValue);
+						bu.setPassword(passwordValue);
+						bu.signUp(this, new SaveListener() {
+							@Override
+							public void onSuccess() {
+								// TODO Auto-generated method stub
+								toast("注册成功:");
+							}
+							@Override
+							public void onFailure(int code, String msg) {
+								// TODO Auto-generated method stub
+								toast("注册失败:"+msg);
+							}
+						});
                     //跳转界面
                     Intent intent = new Intent(LoginActivity.this,LogoActivity.class);
                     LoginActivity.this.startActivity(intent);
                     //finish();
 
-                }else{
+                }/*else{
 
                     Toast.makeText(LoginActivity.this,"用户名或密码错误，请重新登录", Toast.LENGTH_LONG).show();
-                }
+                } */
 
             }
         });
+		
+		//注册按钮实现
+		btn_reg.setOnClickListener(new view.OnClickListener(){
+				public void onClick(View v){
+				userNameValue = userName.getText().toString();
+                passwordValue = password.getText().toString();
+				BmobUser bu = new BmobUser();
+				BmobUser.loginByAccount(getApplicationContext(), account, password, new LogInListener<MyUser>(){
+
+					@Override
+					public void done(MyUser user, BmobException arg1) {
+						// TODO Auto-generated method stub
+						 if(user!=null){
+								toast("登陆成功");
+							}
+						 else
+							 toast("登陆失败");
+					}
+				});
+			}
+				}
+		});
+		
+		//Toast初始化
+		public void toast(String string) {
+					// TODO Auto-generated method stub
+					Toast.makeText(BackStage.this, string, Toast.LENGTH_SHORT).show();
+				}
 
         //监听记住密码多选框按钮事件
         rem_pw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
